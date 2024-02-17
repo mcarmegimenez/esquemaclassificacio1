@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>SM - Classifica els sistemes materials</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="css/_reset.css" rel="stylesheet" type="text/css">
+	<link href="css/fonts/fonts.css" rel="stylesheet" type="text/css">
+	<link href="css/_botones.css" rel="stylesheet" type="text/css">
+	<link href="css/_popup.css" rel="stylesheet" type="text/css">
+	<link href="css/_estilos_generales.css" rel="stylesheet" type="text/css">
+	<link href="css/estilos_mapa_conceptual.css" rel="stylesheet" type="text/css">
+	<script src="js/libs/jquery-2.0.3.min.js"></script>
+	<script src="js/libs/jquery-ui.min.js"></script>
+	<script src="js/libs/jquery.ui.touch-punch.min.js"></script>
+	<script src="js/libs/l10n.min.js"></script>
+	<script src="js/rescaling.js"></script>
+	<script src="data/texts/textos.js"></script>
+	<script src="js/popup.js"></script>
+	<script src="js/data_mapa_conceptual.js"></script>
+	<script src="js/mapa_conceptual.js"></script>
+</head>
+
+<body>
+	<div class="contenedor_interactivo state-inicio">
+		<div class="popup-wrapper">
+			<div id="instrucciones" class="popup">
+				<a href="#" class="cerrar-popup-btn specialButton cerrar"></a>
+				<div class="contenido" data-l10n="%instrucciones"></div>
+			</div>
+			<div id="ampliacion" class="popup">
+				<a href="#" class="cerrar-popup-btn specialButton cerrar"></a>
+				<div class="contenido">
+					<img src="#" alt="" />
+				</div>
+			</div>
+		</div>
+		<div id="cabecera" class="logo">
+			<div id="enunciado" data-l10n="%enunciado"></div>
+		</div>
+		<div id="contenedor_ppal">
+			<div class="col col-80">
+				<div id="arbol" class="">
+					<ul class="nivel-0">
+						<span class="title" data-l10n="%simple_vista"></span>
+						<li data-value="false">
+							<a href="#" class="option" data-l10n="%no" data-value="false"></a>
+							<ul class="nivel-1">
+								<span class="title" data-l10n="%microscopio"></span>
+								<li data-value="false">
+									<a href="#" class="option" data-l10n="%no" data-value="false"></a>
+									<ul class="nivel-2">
+										<span class="leaf" data-l10n="%homogenea"></span>
+										<span class="title" data-l10n="%temperatura"></span>
+										<li data-value="false">
+											<a href="#" class="option" data-l10n="%no" data-value="false"></a>
+											<ul class="nivel-3"><span class="leaf" data-l10n="%disolucion"></span></ul>
+										</li>
+										<li data-value="true">
+											<a href="#" class="option" data-l10n="%si" data-value="true"></a>
+											<ul class="nivel-3">
+												<span class="leaf" data-l10n="%pura"></span>
+												<span class="title" data-l10n="%electrolisis"></span>
+												<li data-value="true">
+													<a href="#" class="option" data-l10n="%si" data-value="true"></a>
+													<ul class="nivel-4"><span class="leaf" data-l10n="%compuesto"></span></ul>
+												</li>
+												<li data-value="false">
+													<a href="#" class="option" data-l10n="%no" data-value="false"></a>
+													<ul class="nivel-4"><span class="leaf" data-l10n="%simple"></span></ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li data-value="true">
+									<a href="#" class="option" data-l10n="%si" data-value="true"></a>
+									<ul class="nivel-2"><span class="leaf" data-l10n="%coloide"></span></ul>
+								</li>
+							</ul>
+						</li>
+						<li data-value="true">
+							<a href="#" class="option" data-l10n="%si" data-value="true"></a>
+							<ul class="nivel-1"><span class="leaf" data-l10n="%heterogenea"></span></ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col col-20">
+				<div id="material" class="droppable">
+					<span class="title"></span>
+					<img class="foto con-marco " src="#" alt="" />
+					<p id="resultado"></p>
+					<div id="analisis">
+						<!-- <img class="ojo"  src="#" alt="" />
+                        <img class="microscopio"  src="#" alt="" />
+                        <img class="temperatura"  src="#" alt="" />
+                        <img class="electrolisis" src="#" alt="" /> -->
+					</div>
+				</div>
+				<div id="herramientas" class="">
+					<p id="instrucciones-paso"></p>
+					<ul>
+						<li class="draggable herramienta-0 icon-ojo" data-value="0">Ojo</li>
+						<li class="draggable herramienta-1 icon-microscopio" data-value="1">Microscopio</li>
+						<li class="draggable herramienta-2 icon-termometro" data-value="2">Termómetro</li>
+						<li class="draggable herramienta-3 icon-pila" data-value="3">Pilas</li>
+					</ul>
+				</div>
+			</div>
+			<div id="navegacion">
+				<a class="uiButton" href="#" id="btn-repetir" data-l10n="%repetir"></a>
+				<a class="uiButton" href="#" id="btn-continuar" data-l10n="%continuar"></a>
+			</div>
+		</div>
+		<audio id="error-sound">
+			<source src="data/audios/error.mp3" type="audio/mpeg">
+			<source src="data/audios/error.wav" type="audio/wav">
+		</audio>
+		<audio id="success-sound">
+			<source src="data/audios/success.mp3" type="audio/mpeg">
+			<source src="data/audios/success.wav" type="audio/wav">
+		</audio>
+		<audio id="exact-sound">
+			<source src="data/audios/exact.mp3" type="audio/mpeg">
+			<source src="data/audios/exact.wav" type="audio/wav">
+		</audio>
+	</div>
+</body>
+
+</html>
