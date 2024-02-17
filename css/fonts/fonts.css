@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/* FONTS */
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('sourcesanspro.eot');
+    src: url('sourcesanspro.eot?#iefix') format('embedded-opentype'),
+         url('sourcesanspro.woff') format('woff'),
+         url('sourcesanspro.ttf') format('truetype'),
+         url('sourcesanspro.svg#SourceSansProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'smsymbolregular';
+    src: url('smsymbol-webfont.eot');
+    src: url('smsymbol-webfont.eot?#iefix') format('embedded-opentype'),
+         url('smsymbol-webfont.woff') format('woff'),
+         url('smsymbol-webfont.ttf') format('truetype'),
+         url('smsymbol-webfont.svg#smsymbolregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* END FONTS */
